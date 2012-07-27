@@ -1,3 +1,6 @@
 [submodule "bootstrap"]
 	path = bootstrap
 	url = https://github.com/jlong/sass-twitter-bootstrap.git
+[submodule "normalize"]
+	path = normalize
+	url = https://github.com/necolas/normalize.css.git
