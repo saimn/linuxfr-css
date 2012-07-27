@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
-@import url(http://fonts.googleapis.com/css?family=Nobile:400,400italic,700,700italic|Neuton:400,400italic,700&subset=latin,latin-ext);
-
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Open+Sans+Condensed:700);
 @import "normalize.scss";
 
 html {
@@ -16,10 +15,9 @@ body {
   position: relative;
   width: 960px;
   /* background-image:url(images/upper-bg.jpg); */
-  font: 75% "Nobile", sans-serif;
+  font: 87.5%/1.5 "Open Sans", sans-serif;
   /*text-rendering: optimizeLegibility;*/
   -webkit-font-smoothing:subpixel-antialiased;
-  line-height:1.6;
 }
 
 
@@ -54,11 +52,11 @@ pre code {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  color:#23262D;
-  font-family:"Neuton",serif;
-  font-weight:700;
-  letter-spacing:0;
-  line-height:1.3;
+  color: #23262D;
+  font-family: "Open Sans Condensed",serif;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.3;
 }
 h1                        {font-size:2em;}
 h2                        {font-size:1.5em;}
