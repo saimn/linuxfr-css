@@ -1055,51 +1055,12 @@ div#form_links fieldset label, div#form_links .link input, div#form_links .link 
 }
 
 /*==========================
-  Code
-  ==========================*/
-
-code .hll {background-color:#ffc;}
-code .err {color:#a61717; background-color:#e3d2d2;}
-code .cp {color:#c00; font-weight:bold;}
-code .cs {color:#c00; font-weight:bold; background-color:#fff0f0;}
-code .gd {color:#000; background-color:#fdd;}
-code .ge {font-style:italic;}
-code .gh {color:#303030;}
-code .gi {color:#000; background-color:#dfd;}
-code .gu {color:#606060;}
-code .kt {color:#888; font-weight:bold;}
-code .no {color:#036; font-weight:bold;}
-code .nf {color:#06b; font-weight:bold;}
-code .nl {color:#369; font-style:italic;}
-code .py {color:#369; font-weight:bold;}
-code .w {color:#bbb;}
-code .se {color:#04d; background-color:#fff0f0;}
-code .si {color:#33b; background-color:#fff0f0;}
-code .sx {color:#2b2; background-color:#f0fff0;}
-code .sr {color:#080; background-color:#fff0ff;}
-code .ss {color:#a60; background-color:#fff0f0;}
-code .vg {color:#d70;}
-code .vi {color:#33b;}
-
-code .c,code .cm,code .c1,code .go {color:#888;}
-code .k,code .kc,code .kd,code .kn,code .kr {color:#080; font-weight:bold;}
-code .gr,code .gt {color:#a00;}
-code .gp,code .nd {color:#555;}
-code .gs,#sidebar .box li.forum span {font-weight:bold;}
-code .kp,code .ow {color:#080;}
-code .m,code .mf,code .mh,code .mi,code .mo,code .il {color:#00D; font-weight:bold;}
-code .s,code .sb,code .sc,code .sd,code .s2,code .sh,code .s1 {color:#d20; background-color:#fff0f0;}
-code .na,code .nv,code .vc {color:#369;}
-code .nb,code .bp {color:#038;}
-code .nc,code .ne,code .nn,code .nt {color:#b06; font-weight:bold;}
-
-
-/*==========================
   Import common styles
   ==========================*/
 
 @import "common/ac.css.scss";
 @import "common/markitup.css.scss";
+@import "common/monokai.css.scss";
 @import "common/statistics.css.scss";
 
 /* markItUp mod */
