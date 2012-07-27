@@ -1,0 +1,1313 @@
+@charset "UTF-8";
+
+@import url(http://fonts.googleapis.com/css?family=Nobile:400,400italic,700,700italic|Neuton:400,400italic,700&subset=latin,latin-ext);
+
+@import url(https://raw.github.com/necolas/normalize.css/master/normalize.css);
+
+html {
+  background: #e4e4e4 url(data:image/png;base64,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) repeat top;
+}
+
+body {
+  color:#242424;
+  margin: 0 auto;
+  padding: 0;
+  padding-top: 40px;
+  position: relative;
+  width: 960px;
+  /* background-image:url(images/upper-bg.jpg); */
+  font: 75% "Nobile", sans-serif;
+  /*text-rendering: optimizeLegibility;*/
+  -webkit-font-smoothing:subpixel-antialiased;
+  line-height:1.6;
+}
+
+
+hr {
+  border:dashed #E2E2E3;
+  /* clear:both; */
+  margin: 1em 0;
+  height:0;
+  border-image:initial;
+  border-width:1px 0 0;
+}
+
+pre, code {
+  font-size: 1.1em;
+  font-family: "DejaVuSansMono",Consolas,monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background:rgba(0,0,0,.05);
+  border: 1px solid #aaa;
+}
+pre {
+  background-color: #211E1E;
+  color: #DADADA;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  -moz-tab-size: 2;
+  font-size: 1em;
+  line-height: 1.5;
+  padding: 0.75em 1em;
+}
+pre code {
+  border: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color:#23262D;
+  font-family:"Neuton",serif;
+  font-weight:700;
+  letter-spacing:0;
+  line-height:1.3;
+}
+h1                        {font-size:2em;}
+h2                        {font-size:1.5em;}
+h3                        {font-size:1.2em;}
+p                         {hyphens:auto; -webkit-hyphens:auto; -moz-hyphens:auto;}
+img,video,object,embed    {max-width:100%;}
+img                       {border:none;}
+article b,article strong,
+article em,article i      {color:inherit;}
+p                         {margin:0 0 20px; }
+figure                    {position:relative;}
+textarea                  {max-width:100%;}
+
+blockquote:before {
+  color: #999;
+  content: "“";
+  display: block;
+  font: italic 4em/0.8125 Cochin,Georgia,"Times New Roman",serif;
+  height: 0;
+  margin-left: -0.95em;
+}
+blockquote {
+  font-style: italic;
+  border-left: 0.5em solid #ddd;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+table         {border-collapse:collapse; width: 100%;}
+tr            {border: 1px solid #ccc; border-width: 2px 0;}
+td            {padding: 0.5em;}
+table .date,
+table .number {white-space:nowrap;}
+
+.misspelled {
+  color:inherit;
+  background-color:inherit;
+  border-bottom:1px dashed red;
+}
+
+.signature        {color:#999;}
+.signature:before {white-space:pre-line; content:"-- \a";}
+
+li.link:before {
+  content: "(" attr(lang) ")";
+  font-family: monospace;
+  font-size: small;
+  font-weight: bold;
+}
+
+#top {}
+
+/*==========================
+  Buttons, Inputs
+  ==========================*/
+
+form {margin-bottom: 18px;}
+fieldset {border: 0; padding: 1em 0;}
+fieldset legend {
+  display: block;
+  padding-left: 150px;
+  font-size: 19.5px;
+  line-height: 1;
+  color: #404040;
+}
+form .clearfix {
+  margin-bottom: 18px;
+  zoom: 1;
+}
+form .clearfix:before, form .clearfix:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+form .clearfix:after {
+  clear: both;
+}
+label, input, select, textarea {
+  font-weight: normal;
+  line-height: normal;
+}
+label {
+  padding-top: 6px;
+/*  float: left; */
+  width: 15em;
+  text-align: right;
+	margin-right: 1em;
+  color: #404040;
+}
+input, textarea, select, .uneditable-input {
+  display: inline-block;
+  width: 210px;
+  height: 18px;
+  padding: 4px;
+  line-height: 18px;
+  color: #808080;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+select {
+  padding: initial;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 8px 0 3px;
+  line-height: normal;
+  border: none;
+}
+input[type=file] {
+  background-color: #ffffff;
+  padding: initial;
+  border: initial;
+  line-height: initial;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+input[type=button], input[type=reset], input[type=submit] {
+  width: auto;
+  height: auto;
+}
+select, input[type=file] {
+  height: 27px;
+  *height: auto;
+  line-height: 27px;
+}
+select[multiple] {
+  height: inherit;
+  background-color: #ffffff;
+}
+textarea {
+  height: auto;
+}
+.uneditable-input {
+  background-color: #ffffff;
+  display: block;
+  border-color: #eee;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
+  cursor: not-allowed;
+}
+:-moz-placeholder {
+  color: #bfbfbf;
+}
+::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+input, textarea {
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+input:focus, textarea:focus {
+  outline: 0;
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+input[type=file]:focus, input[type=checkbox]:focus, select:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: 1px dotted #666;
+}
+
+/* a.button,button,input[type="submit"],input[type="reset"],input[type="button"] { */
+/*   background:#23262D; */
+/*   border:none; */
+/*   text-shadow:none; */
+/*   color:#F4F4F4; */
+/*   box-shadow:none; */
+/*   font-style:italic; */
+/*   letter-spacing:none; */
+/*   font-family:inherit; */
+/*   text-transform:none; */
+/*   font-weight:400; */
+/*   padding:5px 8px; */
+/* } */
+
+
+a.button,button,input[type="submit"],input[type="reset"],input[type="button"] {
+  cursor: pointer;
+  display: inline-block;
+  background-color: #e6e6e6;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  padding: 5px 14px 6px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  color: #333;
+  font-size: 13px;
+  line-height: normal;
+  border: 1px solid #ccc;
+  border-bottom-color: #bbb;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -webkit-transition: 0.1s linear all;
+  -moz-transition: 0.1s linear all;
+  -ms-transition: 0.1s linear all;
+  -o-transition: 0.1s linear all;
+  transition: 0.1s linear all;
+}
+a.button:active,button:active,input[type="submit"]:active,input[type="reset"]:active,input[type="button"]:active,
+a.button:hover,button:hover,input[type="submit"]:hover,input[type="reset"]:hover,input[type="button"]:hover {
+  background-position: 0 -15px;
+  color: #333;
+  text-decoration: none;
+}
+a.button:focus,button:focus,input[type="submit"]:focus,input[type="reset"]:focus,input[type="button"]:focus {
+  outline: 1px dotted #666;
+}
+
+form input[type='submit'], button {}
+form .help {
+  color: #999;
+	display: inline-block;
+	font-style: italic;
+}
+#stylesheets-edit #contents button {margin: 1em 0; width: 32%;}
+
+/*
+  button.publish_news,button.ok_button,input[type='submit'].publish_news,input[type='submit'].ok_button {
+  background:url("https://linuxfr.org/images/icones/check.png") no-repeat 3px 3px;
+  }
+
+button.refuse_news,button.delete_button,button.cancel,button.remove,button.refuse_oauth,input[type='submit'].refuse_news,input[type='submit'].delete_button,input[type='submit'].cancel,input[type='submit'].remove,input[type='submit'].refuse_oauth {
+background:url("https://linuxfr.org/images/icones/x_red.png") no-repeat 4px 4px;
+}
+
+button.add_para,button.add_link,button.create_news,input[type='submit'].add_para,input[type='submit'].add_link,input[type='submit'].create_news {
+background:url("https://linuxfr.org/images/icones/plus.png") no-repeat 2px 2px;
+}
+
+button.ppp_news,input[type='submit'].ppp_news {
+background:url("https://linuxfr.org/images/icones/pin.png") no-repeat 3px 3px;
+}
+
+button.submit_news,input[type='submit'].submit_news {
+background:url("https://linuxfr.org/images/icones/check_alt.png") no-repeat 2px 2px;
+margin-bottom:15px;
+}
+
+button.vote_for,input[type='submit'].vote_for {
+background:url("https://linuxfr.org/images/icones/arrow_up.png") no-repeat 2px 2px;
+}
+
+button.vote_against,input[type='submit'].vote_against {
+background:url("https://linuxfr.org/images/icones/arrow_down.png") no-repeat 2px 2px;
+}
+
+button.plonk,input[type='submit'].plonk {
+background:url("https://linuxfr.org/images/icones/denied.png") no-repeat 2px 2px;
+}
+
+button#admin_49_3,button.archive_button,input[type='submit']#admin_49_3,input[type='submit'].archive_button {
+background:url("https://linuxfr.org/images/icones/target.png") no-repeat 2px 2px;
+}
+*/
+
+/* button.submit_board, input[type='submit'].submit_board, */
+
+#send-comment                           {background:url("https://linuxfr.org/images/icones/chat.png") no-repeat 2px 2px;}
+.follow_feed, #follow-feed              {background:url("https://linuxfr.org/images/icones/rss.png") no-repeat 2px 2px;}
+.edit_client_app, .toolbox .new_content {background:url("https://linuxfr.org/images/icones/pen.png") no-repeat 2px 2px;}
+
+.edit_client_app,.toolbox .new_content, .follow_feed, #follow-feed, #send-comment {
+  display: inline-block;
+  margin: 0 0.5em;
+  padding-left: 25px;
+}
+
+/*==========================
+  Links
+  ==========================
+
+color: #0099BB; border-bottom: 1px dashed #0099BB;
+color: #999999; border-bottom: 1px dashed #999999;
+color: #ff6000; border-bottom: 1px dashed #ff6000;
+*/
+
+a, footer.actions .button_to input {
+  -moz-transition: all 0.5s ease-in-out 0s;
+  text-decoration: none;
+  color: #999999;
+}
+
+/* #site ul a               {color: #23262d;} */
+/* #site ul a:hover         {color: #0099BB;} */
+
+#bigfooter ul:hover a,
+#sidebar ul:hover a,
+article footer:hover .button_to input,
+article footer:hover a   {color: #0099BB;}
+
+a:hover,
+#bigfooter ul:hover a:hover,
+#sidebar ul:hover a:hover,
+article footer:hover a:hover,
+footer.actions .button_to input:hover,
+.toolbox a:hover         {color: #ff6000;}
+
+article h1, article h1 a {color: #23262d;}
+article .meta a          {color: #999; border-bottom: 1px dashed #999;}
+article .meta a:hover    {color: #23262d; border-bottom: 1px dashed #23262d;}
+article .content a       {color: #0099BB; border-bottom: 1px dashed #0099BB;}
+article .content a:hover {color: #ff6000; border-bottom: 1px dashed #ff6000;}
+
+.board-right a           {font-weight:bold;}
+.fixed a, .invalid a     {text-decoration:line-through;}
+
+
+
+/*==========================
+  Sidebar
+  ==========================*/
+
+#sidebar {
+  float:left;
+  width:201px;
+  text-align:left;
+  padding-top: 40px;
+}
+
+#sidebar .insecure,#sidebar .secure {
+  float:right;
+  text-indent:-9999em;
+  height:16px;
+  width:16px;
+}
+#sidebar .insecure {background:url(https://linuxfr.org/images/icones/lock-insecure.png) no-repeat;}
+#sidebar .secure {background:url(https://linuxfr.org/images/icones/lock-secure.png) no-repeat;}
+
+#sidebar #branding h1 {
+  display:block;
+  height:186px;
+  margin: 0;
+}
+
+#sidebar #branding h1 a {
+  display:block;
+  text-indent:-9999em;
+  width:100%;
+  height:100%;
+}
+
+#sidebar .box    {margin-bottom: 2em;}
+#sidebar .box ul {padding-left:0;}
+#sidebar .box li {list-style:none;}
+#sidebar input   {font-size:small;}
+#sidebar #logout {margin-top:1em;}
+
+/*==========================
+  Site (menubar)
+  ==========================*/
+
+#site {
+  height: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  overflow: visible;
+}
+#site a {
+  color: #bfbfbf;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+#site ul .active > a {
+  background-color: #333;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  text-decoration: none;
+}
+#site form {
+  float: left;
+  margin: 5px 0 0 0;
+  position: relative;
+  filter: alpha(opacity=100);
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+#site input {
+  background-color: #444;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: normal;
+  font-weight: 13px;
+  line-height: 1;
+  padding: 4px 9px;
+  color: #ffffff;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid #111;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(255, 255, 255, 0.25);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+#site input:-moz-placeholder {
+  color: #e6e6e6;
+}
+#site input::-webkit-input-placeholder {
+  color: #e6e6e6;
+}
+#site input:hover {
+  background-color: #bfbfbf;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+}
+#site input:focus, #site input.focused {
+  outline: 0;
+  background-color: #ffffff;
+  color: #404040;
+  text-shadow: 0 1px 0 #ffffff;
+  border: 0;
+  padding: 5px 10px;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+#site {
+  background-color: #222;
+  background-color: #222222;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#333333), to(#222222));
+  background-image: -moz-linear-gradient(top, #333333, #222222);
+  background-image: -ms-linear-gradient(top, #333333, #222222);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #222222));
+  background-image: -webkit-linear-gradient(top, #333333, #222222);
+  background-image: -o-linear-gradient(top, #333333, #222222);
+  background-image: linear-gradient(top, #333333, #222222);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+#site ul {
+  display: block;
+  margin: 0 auto;
+  width: 960px;
+}
+#site ul > li {
+  display: block;
+  float: left;
+}
+#site ul a {
+  display: block;
+  float: none;
+  padding: 10px 10px 11px;
+  line-height: 19px;
+  text-decoration: none;
+}
+#site ul a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+#site ul .active > a {
+  background-color: #222;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.factice,.go_to_content {
+  float: left;
+  text-indent: -9999em;
+	text-align: left;
+}
+
+/*
+  #site {
+  display:block;
+  font-size:small;
+  margin-bottom: 2em;
+  padding: 1em 0;
+  position: relative;
+  }
+
+#site ul {
+margin: 0;
+padding: 0;
+display: inline-block;
+}
+
+#site li:after {
+content:" — ";
+}
+
+#site form {
+display:inline-block;
+position: absolute;
+right: 0;
+}
+
+#site form label {
+float:left;
+text-indent:-9998em;
+overflow:hidden;
+text-align:left;
+width:0;
+}
+*/
+
+#site form input#search_submit {
+  width:0;
+  position:absolute;
+  visibility:hidden;
+}
+
+/*==========================
+  Footer
+  ==========================*/
+
+#bigfooter {
+  clear:both;
+  width:100%;
+  display:block;
+  font-size: small;
+}
+
+#bigfooter nav,#bigfooter section {
+  display:inline-block;
+  vertical-align:top;
+  width:23%;
+  min-height:330px;
+  margin:0 0.7%;
+  padding:5px 0 30px;
+}
+
+#bigfooter nav h1,#bigfooter section h1 {
+  font-size:medium;
+  padding:0 0 3px;
+}
+
+
+/*==========================
+  Container
+  ==========================*/
+
+#container {
+  display: block;
+  margin-left: 201px;
+  padding: 0 0 0 40px;
+}
+
+.banner {
+  display:block;
+  text-align:center;
+  margin: 0 auto;
+}
+
+.toolbox, .scroll {
+  display: block;
+  margin: 1em 0;
+}
+.toolbox > div                     {display:inline-block;}
+.toolbox .order_navbar ul          {display:inline; padding-left: 0;}
+.toolbox .order_navbar ul li       {display:inline; list-style:none; padding:0;}
+.toolbox .order_navbar ul li:after {content:" · ";}
+#container > .toolbox:last-of-type .pagination {display:inherit;}
+
+/*==========================
+  Articles
+  ==========================*/
+
+article,
+body#admin-index #container > ul,
+body#boards-show #contents,
+body#client_applications-index table,
+body#comments-create #contents > ul > li#comment_new,
+body#comments-show #contents > ul > li.comment,
+body#dashboard-index #contents table,
+body#news-revision #contents,
+body#redaction-index #container > div,
+body#stylesheets-edit #contents,
+body#trackers-index #contents table,
+body#users-comments #contents > ul > li,
+body#wiki_pages-changes #contents,
+body#wiki_pages-revision #contents,
+form#new_post {
+  background: #fff;
+  margin: 1.5em 0;
+  padding: 1em;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+article                     {position:relative;}
+article header              {margin-right: 60px;}
+article header .topic:after {content:" :";}
+article h1                  {margin: 0 0 0.5em;}
+article .meta               {color: #999;}
+article .datePourCss        {display: none;}
+article .image              {float:left; margin:10px;}
+
+article figure figcaption {
+  color:#999;
+  font-size:80%;
+  left:100%;
+  line-height:1.7em;
+  padding:0 0 0 10%;
+  position:absolute;
+  top:.5em;
+  width:37%;
+}
+
+article .figures .image {
+  position:absolute;
+  top: 0;
+  right: 0;
+}
+
+article .score {
+  font-size: 2em;
+  font-weight: bold;
+  color: #999;
+  position: absolute;
+  right: -90px;
+  top: 0;
+}
+
+.read a:before,.no_comments a:before,.new_comments a:before,.not_read a:before {
+  content:"+ ";
+  font-size:medium;
+  font-weight:bold;
+}
+
+/*==========================
+  Footer actions: Tags, votes, ...
+  ==========================*/
+
+footer.actions .button_to input {
+  cursor:pointer;
+  display:inline;
+  font-size:inherit;
+  color: #999;
+  background: transparent;
+  background-color:transparent;
+  border-style:none;
+  padding:0;
+  border:none;
+  padding:0;
+  text-shadow: none;
+  box-shadow: none;
+}
+.button_to input[disabled] {cursor:default;}
+
+footer.actions form, footer.actions form div,
+.vote form, .vote form div, .vote .button_to input,
+.tag_in_place, .tags ul,
+#news_vote div .button_to, #news_vote div .button_to div {
+  display: inline;
+}
+
+.tags, .tags ul li form {
+  display: inline-block;
+}
+
+.tag_in_place input[type='submit'] {font-size:inherit;}
+
+.tags ul li .add_tag,.tags ul li .remove_tag {
+  display:inline-block;
+  text-indent:-9998em;
+  height:20px;
+  width:12px;
+  border:none;
+  padding:0;
+}
+
+.tags ul                          {margin: 0; padding: 0;}
+.tags ul li                       {display:inline; list-style:none; padding:0;}
+.tags ul li:after                 {content:", ";}
+.tags ul li .add_tag              {background:url(https://linuxfr.org/images/icones/tag.png) no-repeat 0 6px;}
+.tags ul li .add_tag[disabled]    {background:url(https://linuxfr.org/images/icones/tagged.png) no-repeat 0 6px;}
+.tags ul li .remove_tag[disabled] {display:none;}
+.tags ul li .remove_tag           {background:url(https://linuxfr.org/images/icones/x.png) no-repeat 0 6px;}
+
+.vote, .vote .button_to input {
+  font-style: italic;
+  display: inline;
+}
+
+/*==========================
+  Content
+  ==========================*/
+
+article .content {
+  padding: 1em 0;
+}
+.content {
+  text-align:justify;
+  word-wrap:break-word;
+  -webkit-hyphens:auto;
+  -moz-hyphens:auto;
+  hyphens:auto;
+}
+
+.content img {
+  display:block;
+  max-width:100%;
+  margin:0 auto;
+}
+
+.content a[href][title="Définition Wikipédia"]:after {
+  content:"\A0W";
+  font-family:serif;
+  font-size:6pt;
+  vertical-align:super;
+}
+
+.content a[href][title="Lien du wiki interne LinuxFr.org"] {
+  padding-left:3px;
+  border-left:16px;
+  -moz-border-image:url("/favicon.png") 0 0 0 32px;
+  -o-border-image:url("/favicon.png") 0 0 0 32px;
+  -webkit-border-image:url("/favicon.png") 0 0 0 32px;
+  -khtml-border-image:url("/favicon.png") 0 0 0 32px;
+  border-image:url("/favicon.png") 0 0 0 32px;
+}
+
+.content .content li {
+  list-style-position:inside;
+}
+
+/*==========================
+  Messages
+  ==========================*/
+
+.alert {
+  text-align:center;
+  background-color:#faa;
+  border:1px solid red;
+  margin-bottom:10px;
+}
+
+.notice {
+  background-color: #EEDC94;
+  background-image: -moz-linear-gradient(center top , #FCEEC1, #EEDC94);
+  background-repeat: repeat-x;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-radius: 4px 4px 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+  color: #404040;
+  margin: 1em 0;
+  padding: 7px 15px;
+  position: relative;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.notice-wrap {
+  position:fixed;
+  top:60px;
+  width:960px;
+  z-index:9999;
+}
+.notice-item {}
+.notice-item-close {float: right;}
+
+/*==========================
+  Polls
+  ==========================*/
+
+ul.poll.current {margin: 0; padding: 0;}
+ul.poll.current li {list-style:none;}
+ul.poll .result {
+  background:#ff6000;
+  font-size:x-small;
+  white-space: nowrap;
+  height: 20px;
+}
+
+/*==========================
+  Comments
+  ==========================*/
+
+#comments > p {
+  margin: 1em 0;
+}
+
+body#comments-show #contents > ul,body#comments-create #contents > ul,body#users-comments #contents > ul,ul.threads {
+  list-style:none;
+  padding:0;
+}
+
+/* body#comments-show #contents > ul > li.comment,body#comments-create #contents > ul > li.comment,body#users-comments #contents > ul > li.comment,ul.threads > li.comment { */
+/*   padding-top:0; */
+/*   padding-left:1.25em; */
+/*   padding-right:5px; */
+/* } */
+
+li.comment > h2 {
+  font-size:medium;
+  margin-bottom:0;
+  margin-top:10px;
+  background:#ddd;
+  clear:right;
+}
+li.new-comment > h2 {background: #aaa;}
+
+li.comment a.title {
+  color: #23262d;
+}
+
+li.comment > p.meta {
+  color:#999;
+}
+
+li.comment figure.image {
+  margin: 0;
+}
+li.comment img.avatar {
+  float: right;
+  height: 64px;
+  width: 64px;
+}
+
+li.comment > ul {
+  list-style:none;
+  margin-left:1.25em;
+  padding-left:0;
+}
+
+/*==========================
+  Board
+  ==========================*/
+
+.norloge {
+  font-weight:bold;
+  font-family:monospace;
+  font-size:small;
+}
+.norloge:before {content:"[";}
+.norloge:after {content:"]";}
+
+.highlighted {
+  background:rgba(76,87,95,0.16);
+  border-top:1px solid #4c575f !important;
+  border-bottom:1px solid #4c575f !important;
+}
+
+.chat                                              {margin: 0;}
+body#boards-show #container                        {margin-left:0;}
+#boards-show #container .inbox .board-left         {display:inline-block; min-width:15%;}
+#boards-show #container .inbox .board-right        {}
+#boards-show #container .inbox .board-right:before {content:"-"; font-weight:bold;}
+#boards-show #container .inbox .board-right time   {color:#0099BB;}
+#boards-show #container .inbox .myPost             {color:#ff6000; font-weight:bold;}
+
+/*==========================
+  Redaction
+  ==========================*/
+
+#wiki_help tr td {width: 50%;}
+
+input#news_title,input#comment_title,input#diary_title,input#tracker_title,
+input#post_title,input#poll_title,input#wiki_page_title,input#stylesheet {
+  width:70%;
+}
+
+.fieldWithErrors input {border:1px solid red;}
+
+#news_message {width:100%;}
+
+#moderation_box.box li {list-style:disc inside;}
+#moderation_box .board input#board_message {display:block; width:95%; margin: 5px auto;}
+
+#redaction .reorganize {background: url("https://linuxfr.org/images/icones/loop.png") no-repeat 2px 2px; padding-left: 20px;}
+#redaction .edit       {background: url("https://linuxfr.org/images/icones/pen.png") no-repeat 2px 2px #fff;}
+
+#redaction #edition {
+  float:left;
+  width:60%;
+}
+
+#redaction .edition_in_place, #redaction .paragraph, #redaction .link {
+  position:relative;
+}
+
+#redaction .edition_in_place:hover .actions button,#redaction .paragraph:hover .actions button,#redaction .link:hover .actions button {
+  visibility:visible;
+  z-index: 999;
+}
+
+#redaction #chat {
+  float:right;
+  width:37%;
+}
+
+#redaction #chat .inbox p.edition:before,#redaction #chat .inbox p.locking:before {
+  content:"Î”â€‰";
+  color:orange;
+}
+
+#redaction #chat .inbox p.creation:before {
+  content:"+â€‰";
+  color:lime;
+}
+
+#redaction .actions, #redaction .score {display:none;}
+
+/*==========================
+  Toolbar
+  ==========================*/
+
+div#toolbar {
+  position:fixed;
+  bottom:0;
+  overflow:hidden;
+  left:0;
+  background:#f9f9f9;
+  border:1px solid #ccc;
+  font-size:x-small;
+  padding: 5px;
+}
+div#toolbar > span {display: block;}
+
+
+/*==========================
+  History / revisions
+  ==========================*/
+
+body#news-revision #contents pre,body#wiki_pages-revision #contents pre {
+  width: 96%;
+  white-space:pre-wrap;
+}
+body#news-revision #contents ins,body#wiki_pages-revision #contents ins {
+  text-decoration: none;
+  background: lime;
+  color: #242424;
+}
+body#news-revision #contents del,body#wiki_pages-revision #contents del {
+  text-decoration: line-through;
+  background: red;
+}
+body#news-revision #contents nav ul, body#news-revision #contents nav ul li,
+body#wiki_pages-revision #contents nav ul, body#wiki_pages-revision #contents nav ul li {
+  display:inline;
+}
+
+/*==========================
+  Misc
+  ==========================*/
+
+body#sections-index .body .section {
+  display: inline-block;
+  height: 120px;
+  text-align: center;
+  width: 20%;
+}
+
+.pot_de_miel,.markItUpHeader ul li ul,#container > h1:first-of-type,#phare article .content ul,.toolbox .pagination,li.comment.fold > figure,li.comment.fold > .content,li.comment.fold > .actions,body#boards-show #sidebar,body#boards-show #bigfooter,body#boards-show .scroll,#main_board h1 {display:none;}
+
+#site li:last-child:after,.tags ul li:last-child:after,.tags ul li .last:after,.toolbox .order_navbar ul li:last-child:after,.toolbox .order_navbar ul li .last:after {
+  content:"";
+}
+
+/*==========================
+  Form links
+  ==========================*/
+
+div#form_links fieldset {
+  width: 100%;
+  margin: 0;
+}
+div#form_links fieldset label, div#form_links .link input, div#form_links .link select, div#form_links .link button {
+  display: inline-block;
+  width: 23.5%;
+}
+
+/*==========================
+  Code
+  ==========================*/
+
+code .hll {background-color:#ffc;}
+code .err {color:#a61717; background-color:#e3d2d2;}
+code .cp {color:#c00; font-weight:bold;}
+code .cs {color:#c00; font-weight:bold; background-color:#fff0f0;}
+code .gd {color:#000; background-color:#fdd;}
+code .ge {font-style:italic;}
+code .gh {color:#303030;}
+code .gi {color:#000; background-color:#dfd;}
+code .gu {color:#606060;}
+code .kt {color:#888; font-weight:bold;}
+code .no {color:#036; font-weight:bold;}
+code .nf {color:#06b; font-weight:bold;}
+code .nl {color:#369; font-style:italic;}
+code .py {color:#369; font-weight:bold;}
+code .w {color:#bbb;}
+code .se {color:#04d; background-color:#fff0f0;}
+code .si {color:#33b; background-color:#fff0f0;}
+code .sx {color:#2b2; background-color:#f0fff0;}
+code .sr {color:#080; background-color:#fff0ff;}
+code .ss {color:#a60; background-color:#fff0f0;}
+code .vg {color:#d70;}
+code .vi {color:#33b;}
+
+code .c,code .cm,code .c1,code .go {color:#888;}
+code .k,code .kc,code .kd,code .kn,code .kr {color:#080; font-weight:bold;}
+code .gr,code .gt {color:#a00;}
+code .gp,code .nd {color:#555;}
+code .gs,#sidebar .box li.forum span {font-weight:bold;}
+code .kp,code .ow {color:#080;}
+code .m,code .mf,code .mh,code .mi,code .mo,code .il {color:#00D; font-weight:bold;}
+code .s,code .sb,code .sc,code .sd,code .s2,code .sh,code .s1 {color:#d20; background-color:#fff0f0;}
+code .na,code .nv,code .vc {color:#369;}
+code .nb,code .bp {color:#038;}
+code .nc,code .ne,code .nn,code .nt {color:#b06; font-weight:bold;}
+
+/*==========================
+  Statistics
+  ==========================*/
+
+.statistics .stat {
+  border-top:1px solid #4C575F;
+  border-bottom:1px solid #4C575F;
+  font-size:x-small;
+  background:#F1ABC5;
+}
+.statistics .stat.contentdiary {background-color:#FFC0CB;}
+.statistics .stat.contentpost {background-color:#FF4500;}
+.statistics .stat.contenttracker {background-color:#ADD8E6;}
+.statistics .stat.contentwikipage {background-color:orange;}
+.statistics span.score {color:"#333";}
+.statistics .top_or_flop {float:left; width:48%;}
+.statistics .stat.category,.statistics .stat.fixed,.statistics .stat.month_fixed,.statistics .stat.misc,.statistics .stat.accountrecent,.statistics .stat.contentnews {background-color:green;}
+.statistics .stat.opened,.statistics .stat.month_new,.statistics .stat.accountrecentinactive {background-color:red;}
+.statistics .stat.invalid,.statistics .stat.month_invalid,.statistics .stat.account,.statistics .stat.contentpoll {background-color:olive;}
+.statistics .stat.remaining,.statistics .stat.accountinactive {background-color:#8B0000;}
+.statistics span.score:before,#sidebar .box span.score:before {content:" [";}
+.statistics span.score:after,#sidebar .box span.score:after {content:"] ";}
+
+/*==========================
+  Autocomplete
+  ==========================*/
+
+.ac_results {
+  background-color:#e9e6e4;
+  border:solid 1px #a99c90;
+  -webkit-border-radius:4px;
+  -khtml-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+  margin:5px 5px 30px;
+  padding:5px;
+}
+.ac_results ul {margin:0; padding:5px;}
+.ac_results ul li {list-style:none; cursor:pointer;}
+.ac_loading {background:#fff url("https://linuxfr.org/images/ajax-loader.gif") right center no-repeat;}
+.ac_odd {background-color:#eee;}
+.ac_over {background-color:#0a246a; color:#FFF;}
+
+
+/*==========================
+  markItUp
+  ==========================*/
+
+.markItUp {
+  border:5px solid #f5f5f5;
+  margin:5px 0;
+}
+
+.markItUp .markItUp a:link,.markItUp .markItUp a:visited {
+  color:#000;
+  text-decoration:none;
+}
+
+.markItUpContainer {
+  border:1px solid #3c769d;
+  background:#fff url(https://linuxfr.org/images/markitup/bg-container.png) repeat-x top left;
+  font:11px Verdana, Arial, Helvetica, sans-serif;
+  padding:5px 5px 2px;
+}
+
+.markItUpEditor {
+  font:12px "Courier New", Courier, monospace;
+  border:3px solid #3c769d;
+  width:643px;
+  height:320px;
+  color:#000;
+  background:#fff url(https://linuxfr.org/images/markitup/bg-editor-markdown.png) no-repeat;
+  display:block;
+  line-height:18px;
+  overflow:auto;
+  padding:5px 5px 5px 35px;
+}
+
+.markItUpPreviewFrame {
+  overflow:auto;
+  background-color:#FFF;
+  border:1px solid #3c769d;
+  width:99.9%;
+  height:300px;
+  margin:5px 0;
+}
+
+.markItUpFooter {
+  width:100%;
+  cursor:n-resize;
+}
+
+.markItUpResizeHandle {
+  overflow:hidden;
+  width:22px;
+  height:5px;
+  margin-left:auto;
+  margin-right:auto;
+  background-image:url(https://linuxfr.org/images/markitup/handle.png);
+  cursor:n-resize;
+}
+
+.markItUpHeader {
+  height:22px;
+}
+
+.markItUpHeader ul li {
+  list-style:none;
+  float:left;
+  position:relative;
+}
+
+.markItUpHeader ul li:hover > ul {
+  display:block;
+}
+
+.markItUpHeader ul a {
+  display:block;
+  width:16px;
+  height:16px;
+  text-indent:-10000px;
+  background-repeat:no-repeat;
+  margin:0;
+  padding:3px;
+}
+
+.markItUpHeader ul .markItUpDropMenu {
+  background:transparent url(https://linuxfr.org/images/markitup/menu.png) no-repeat 115% 50%;
+  margin-right:5px;
+}
+
+.markItUpHeader ul .markItUpDropMenu li {
+  margin-right:0;
+}
+
+.markItUpHeader ul .markItUpSeparator {
+  width:1px;
+  height:16px;
+  overflow:hidden;
+  background-color:#ccc;
+  margin:0 10px;
+}
+
+.markItUpHeader ul ul {
+  display:none;
+  position:absolute;
+  top:18px;
+  left:0;
+  background:#f5f5f5;
+  border:1px solid #3c769d;
+  height:inherit;
+}
+
+.markItUpHeader ul ul .markItUpSeparator {
+  width:auto;
+  height:1px;
+  margin:0;
+}
+
+.markItUpHeader ul ul li {
+  float:none;
+  border-bottom:1px solid #3c769d;
+}
+
+.markItUpHeader ul ul .markItUpDropMenu {
+  background:#f5f5f5 url(https://linuxfr.org/images/markitup/submenu.png) no-repeat 100% 50%;
+}
+
+.markItUpHeader ul ul ul {
+  position:absolute;
+  top:-1px;
+  left:150px;
+}
+
+.markItUpHeader ul ul ul li {
+  float:none;
+}
+
+.markItUpHeader ul ul a {
+  display:block;
+  text-indent:0;
+  width:120px;
+  background-position:2px 50%;
+  padding:5px 5px 5px 25px;
+}
+
+.markItUpHeader ul ul a:hover {
+  color:#FFF;
+  background-color:#3c769d;
+}
+.markItUp .h1 a {background-image:url(https://linuxfr.org/images/markitup/h1.png);}
+.markItUp .h2 a {background-image:url(https://linuxfr.org/images/markitup/h2.png);}
+.markItUp .h3 a {background-image:url(https://linuxfr.org/images/markitup/h3.png);}
+.markItUp .h4 a {background-image:url(https://linuxfr.org/images/markitup/h4.png);}
+.markItUp .bold a {background-image:url(https://linuxfr.org/images/markitup/bold.png);}
+.markItUp .italic a {background-image:url(https://linuxfr.org/images/markitup/italic.png);}
+.markItUp .stroke a {background-image:url(https://linuxfr.org/images/markitup/stroke.png);}
+.markItUp .list-bullet a {background-image:url(https://linuxfr.org/images/markitup/list-bullet.png);}
+.markItUp .list-numeric a {background-image:url(https://linuxfr.org/images/markitup/list-numeric.png);}
+.markItUp .image a {background-image:url(https://linuxfr.org/images/markitup/picture.png);}
+.markItUp .link a {background-image:url(https://linuxfr.org/images/markitup/link.png);}
+.markItUp .quotes a {background-image:url(https://linuxfr.org/images/markitup/quotes.png);}
+.markItUp .code a {background-image:url(https://linuxfr.org/images/markitup/page_white_code.png);}
+
+
+/*==========================
+  markItUp mod
+  ==========================*/
+
+
+textarea.markItUp {
+  border: 0;
+  margin: 0;
+  padding: 4px;
+  width: 98%;
+}
