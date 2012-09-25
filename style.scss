@@ -986,6 +986,10 @@ textarea.markItUp {
   .controls-row [class*="span"] + [class*="span"] {
     margin-left: 0;
   }
+
+  #branding {
+    float: right;
+  }
 }
 
 // UP TO LANDSCAPE PHONE
@@ -1001,5 +1005,12 @@ textarea.markItUp {
   input[type="checkbox"],
   input[type="radio"] {
     border: 1px solid #ccc;
+  }
+
+  #container {
+    padding-top: 0;
+  }
+  #branding, #poll_box, #redaction_box {
+    display: none;
   }
 }
