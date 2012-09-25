@@ -16,14 +16,45 @@ $linkColor: #999;
 $linkColorHover: #ff6000;
 
 @import "bootstrap/lib/_scaffolding.scss";
-@include grid-core($gridColumnWidth, $gridGutterWidth);
 
-body {
+/*==========================
+  LAYOUT
+  ==========================*/
+
+@mixin mycontainer {
   @extend .container;
   @include container-fixed;
-  padding-top: 40px;
+}
+
+body {
+  @include mycontainer;
   background: transparent;
 }
+
+#site ul {
+  @include mycontainer;
+}
+
+@include grid-core($gridColumnWidth, $gridGutterWidth);
+
+#sidebar {
+  @extend .span3;
+  @extend [class*="span"];
+  margin-left: 0 !important;
+}
+
+#container {
+  @extend .span9;
+  @extend [class*="span"];
+}
+
+body, #container, #sidebar {
+  padding-top: 40px;
+}
+
+/*==========================
+  STYLES
+  ==========================*/
 
 @import "bootstrap/lib/_type.scss";
 
@@ -239,13 +270,6 @@ article .content a:hover {color: #ff6000; border-bottom: 1px dashed #ff6000;}
   Sidebar
   ==========================*/
 
-#sidebar {
-  float:left;
-  width:201px;
-  text-align:left;
-  padding-top: 40px;
-}
-
 #sidebar .insecure,#sidebar .secure {
   float:right;
   text-indent:-9999em;
@@ -371,10 +395,6 @@ article .content a:hover {color: #ff6000; border-bottom: 1px dashed #ff6000;}
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
-#site ul {
-  @extend .container;
-  @include container-fixed;
-}
 #site ul > li {
   display: block;
   float: left;
@@ -439,12 +459,6 @@ article .content a:hover {color: #ff6000; border-bottom: 1px dashed #ff6000;}
   Container
   ==========================*/
 
-#container {
-  display: block;
-  margin-left: 201px;
-  padding: 0 0 0 40px;
-}
-
 .banner {
   display:block;
   text-align:center;
@@ -481,7 +495,7 @@ body#wiki_pages-changes #contents,
 body#wiki_pages-revision #contents,
 form#new_post {
   background: #fff;
-  margin: 1.5em 0;
+  margin: 0 0 20px;
   padding: 1em;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
@@ -884,4 +898,130 @@ textarea.markItUp {
   margin: 0;
   padding: 4px;
   width: 98%;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (min-width: 1200px) {
+  // Fixed grid
+  @include grid-core($gridColumnWidth1200, $gridGutterWidth1200);
+
+  // Input grid
+  @include grid-input($gridColumnWidth1200, $gridGutterWidth1200);
+
+  #sidebar {
+    margin-left: O !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  // Fixed grid
+  @include grid-core($gridColumnWidth768, $gridGutterWidth768);
+
+  // Input grid
+  @include grid-input($gridColumnWidth768, $gridGutterWidth768);
+
+  #sidebar {
+    margin-left: O !important;
+  }
+}
+
+@media (max-width: 767px) {
+
+  // Padding to set content in a bit
+  body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  // Negative indent the now static "fixed" navbar
+  .navbar-fixed-top,
+  .navbar-fixed-bottom,
+  .navbar-static-top {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  // TYPOGRAPHY
+  // ----------
+  // Reset horizontal dl
+  .dl-horizontal {
+    dt {
+      float: none;
+      clear: none;
+      width: auto;
+      text-align: left;
+    }
+    dd {
+      margin-left: 0;
+    }
+  }
+
+  // GRID & CONTAINERS
+  // -----------------
+  // Remove width from containers
+  .container {
+    width: auto;
+  }
+  // Undo negative margin on rows and thumbnails
+  .row,
+  .thumbnails {
+    margin-left: 0;
+  }
+  .thumbnails > li {
+    float: none;
+    margin-left: 0; // Reset the default margin for all li elements when no .span* classes are present
+  }
+  // Make all grid-sized elements block level again
+  [class*="span"] {
+    float: none;
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    @include box-sizing(border-box);
+  }
+  .span12 {
+    width: 100%;
+    @include box-sizing(border-box);
+  }
+
+  // FORM FIELDS
+  // -----------
+  // Make span* classes full width
+  .input-large,
+  .input-xlarge,
+  .input-xxlarge,
+  input[class*="span"],
+  select[class*="span"],
+  textarea[class*="span"],
+  .uneditable-input {
+    @include input-block-level();
+  }
+  // But don't let it screw up prepend/append inputs
+  .input-prepend input,
+  .input-append input,
+  .input-prepend input[class*="span"],
+  .input-append input[class*="span"] {
+    display: inline-block; // redeclare so they don't wrap to new lines
+    width: auto;
+  }
+  .controls-row [class*="span"] + [class*="span"] {
+    margin-left: 0;
+  }
+}
+
+// UP TO LANDSCAPE PHONE
+// ---------------------
+
+@media (max-width: 480px) {
+  // Smooth out the collapsing/expanding nav
+  .nav-collapse {
+    -webkit-transform: translate3d(0, 0, 0); // activate the GPU
+  }
+
+  // Update checkboxes for iOS
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 1px solid #ccc;
+  }
 }
