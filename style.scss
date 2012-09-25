@@ -10,8 +10,6 @@ html {
 }
 
 $baseFontFamily: "Open Sans", sans-serif;
-$baseFontSize: 14px;
-$baseLineHeight: 1.5;
 $textColor: #242424;
 $bodyBackground: #e4e4e4;
 $linkColor: #999;
@@ -23,14 +21,11 @@ $linkColorHover: #ff6000;
 body {
   @extend .container;
   margin: 0 auto;
-  padding: 0;
   padding-top: 40px;
-  position: relative;
-  width: 960px;
   background: transparent;
-  /*text-rendering: optimizeLegibility;*/
-  -webkit-font-smoothing:subpixel-antialiased;
 }
+
+@import "bootstrap/lib/_type.scss";
 
 hr {
   border:dashed #E2E2E3;
@@ -59,16 +54,11 @@ pre code {
 h1,h2,h3,h4,h5,h6 {
   color: #23262D;
   font-family: "Open Sans Condensed",serif;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1.3;
 }
-p                         {hyphens:auto; -webkit-hyphens:auto; -moz-hyphens:auto;}
-img,video,object,embed    {max-width:100%;}
-article b,article strong,
-article em,article i      {color:inherit;}
-figure                    {position:relative;}
-textarea                  {max-width:100%;}
+p                      {hyphens:auto; -webkit-hyphens:auto; -moz-hyphens:auto;}
+img,video,object,embed {max-width:100%;}
+figure                 {position:relative;}
+textarea               {max-width:100%;}
 
 blockquote:before {
   color: #999;
@@ -85,11 +75,12 @@ blockquote {
   margin: 1em;
 }
 
-table         {border-collapse:collapse; width: 100%;}
-tr            {border: 1px solid #ccc; border-width: 2px 0;}
-td            {padding: 0.5em;}
-table .date,
-table .number {white-space:nowrap;}
+@import "bootstrap/lib/_tables.scss";
+table {
+  @extend .table;
+}
+/* table .date, */
+/* table .number {white-space:nowrap;} */
 
 .misspelled {
   color:inherit;
@@ -106,8 +97,6 @@ li.link:before {
   font-size: small;
   font-weight: bold;
 }
-
-#top {}
 
 /*==========================
   Buttons, Inputs
@@ -501,7 +490,6 @@ form#new_post {
 article                     {position:relative;}
 article header              {margin-right: 60px;}
 article header .topic:after {content:" :";}
-article h1                  {margin: 0 0 0.5em;}
 article .meta               {color: #999;}
 article .datePourCss        {display: none;}
 article .image              {float:left; margin:10px;}
