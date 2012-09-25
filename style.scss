@@ -139,6 +139,7 @@ li.link:before {
 
 @import "bootstrap/lib/_buttons.scss";
 @import "bootstrap/lib/_forms.scss";
+@import "bootstrap/lib/_labels-badges.scss";
 
 input[type="radio"] {
   float: left;
@@ -227,7 +228,7 @@ background:url("https://linuxfr.org/images/icones/target.png") no-repeat 2px 2px
 }
 .edit_client_app,.toolbox .new_content, .follow_feed, #follow-feed, #send-comment {
   display: inline-block;
-  margin: 0 0.5em;
+  margin: 0 10px 10px 0;
   padding-left: 25px;
 }
 
@@ -480,14 +481,14 @@ body#wiki_pages-revision #contents,
 form#new_post {
   background: #fff;
   margin: 0 0 20px;
-  padding: 1em;
+  padding: 14px;
   @include box-shadow(#{0 0 6px rgba(0, 0, 0, 0.5)});
 }
 
 article                     { position:relative; }
 article header              { margin-right: 60px; }
 article header .topic:after { content:" :"; }
-article h1                  { margin: 0; }
+article h1                  { margin: 0 0 0 34px; }
 article .meta               { color: #999; }
 article .datePourCss        { display: none; }
 article .image              { float:left; margin:10px; }
@@ -510,12 +511,12 @@ article .figures .image {
 }
 
 article .score {
-  font-size: 2em;
-  font-weight: bold;
-  color: #999;
+  @extend .badge;
+  @extend .badge-info;
+  margin: 0;
   position: absolute;
-  right: -90px;
-  top: 0;
+  left: 10px;
+  top: 25px;
 }
 
 .read a:before,.no_comments a:before,.new_comments a:before,.not_read a:before {
@@ -667,52 +668,63 @@ ul.poll .result {
   Comments
   ==========================*/
 
-#comments > p {
-  margin: 1em 0;
+body#comments-show #contents > ul,
+body#comments-create #contents > ul,
+body#users-comments #contents > ul,
+ul.threads {
+  list-style: none;
+  margin: 0 0 20px 0;
 }
 
-body#comments-show #contents > ul,body#comments-create #contents > ul,body#users-comments #contents > ul,ul.threads {
-  list-style:none;
-  padding:0;
+.threads li {
+  position: relative;
 }
 
-/* body#comments-show #contents > ul > li.comment,body#comments-create #contents > ul > li.comment,body#users-comments #contents > ul > li.comment,ul.threads > li.comment { */
-/*   padding-top:0; */
-/*   padding-left:1.25em; */
-/*   padding-right:5px; */
-/* } */
+li.comment {
+  &> h2, &> .meta {
+    background: #ddd;
+    padding-left: 10px;
+    line-height: 25px;
+  }
+  &> h2 {
+    font-size: medium;
+    margin-bottom: 0;
+    margin-top: 10px;
+    clear: right;
+    padding-top: 5px;
+    border-top: 2px solid #ccc;
+  }
+  &> .meta {
+    color:#999;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ccc;
+  }
 
-li.comment > h2 {
-  font-size:medium;
-  margin-bottom:0;
-  margin-top:10px;
-  background:#ddd;
-  clear:right;
-}
-li.new-comment > h2 {background: #aaa;}
+  a.title {
+    color: #23262d;
+  }
 
-li.comment a.title {
-  color: #23262d;
-}
+  figure.image {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  img.avatar {
+    height: 64px;
+    width: 64px;
+  }
 
-li.comment > p.meta {
-  color:#999;
-}
-
-li.comment figure.image {
-  margin: 0;
-}
-li.comment img.avatar {
-  float: right;
-  height: 64px;
-  width: 64px;
+  &> ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;
+    border-left: 1px dotted #ccc;
+  }
 }
 
-li.comment > ul {
-  list-style:none;
-  margin-left:1.25em;
-  padding-left:0;
-}
+li.new-comment > .meta { border-color: $linkColorHover; }
+li.new-comment > h2    { border-color: $linkColorHover; }
 
 /*==========================
   Board
@@ -1012,5 +1024,8 @@ textarea.markItUp {
   }
   #branding, #poll_box, #redaction_box {
     display: none;
+  }
+  li.comment > ul {
+    padding-left: 5px;
   }
 }
