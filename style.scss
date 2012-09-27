@@ -70,9 +70,11 @@ pre {
   @include box-shadow(#{0 0 6px rgba(0, 0, 0, 0.5)});
   -moz-tab-size: 2;
   padding: 0.75em 1em;
-}
-pre code {
-  border: 0;
+
+  code {
+    border: 0;
+    white-space: pre-wrap;
+  }
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -569,32 +571,36 @@ footer.actions {
 .button_to input[disabled]    {cursor:default;}
 .vote, .vote .button_to input {font-style: italic;}
 
-.tags, .tags ul li form {
-  display: inline-block;
-}
-
 .tag_in_place input[type='submit'] {font-size:inherit;}
 
-.tags ul li .add_tag,.tags ul li .remove_tag {
-  display:inline-block;
-  text-indent:-9998em;
-  height:20px;
-  width:12px;
-  border:none;
-  padding:0;
-}
-
 .tags {
+  display: inline;
+
   ul {
     margin: 0;
     padding: 0;
+    display: inline-block;
 
     li {
-      display:inline;
-      list-style:none;
-      padding:0;
+      display: inline;
+      list-style: none;
+      padding: 0;
 
-      &:after {content:", ";}
+      &:after { content:", "; }
+
+      form {
+        display: inline-block;
+        margin: 0;
+      }
+
+      .add_tag, .remove_tag {
+        text-indent: -9998em;
+        height: 20px;
+        width: 12px;
+        border: none;
+        padding: 0;
+      }
+
       .add_tag {
         background:url("https://linuxfr.org/images/icones/tag.png") no-repeat 0 6px;
       }
@@ -618,37 +624,38 @@ footer.actions {
 article .content {
   padding: 1em 0;
 }
+
 .content {
-  text-align:justify;
-  word-wrap:break-word;
+  text-align: justify;
+  word-wrap: break-word;
   @include hyphens();
-}
 
-.content img {
-  display:block;
-  max-width:100%;
-  margin:0 auto;
-}
+  img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
 
-.content a[href][title="Définition Wikipédia"]:after {
-  content:"\A0W";
-  font-family:serif;
-  font-size:6pt;
-  vertical-align:super;
-}
+  a[href][title="Définition Wikipédia"]:after {
+    content: "\A0W";
+    font-family: serif;
+    font-size: 6pt;
+    vertical-align: super;
+  }
 
-.content a[href][title="Lien du wiki interne LinuxFr.org"] {
-  padding-left:3px;
-  border-left:16px;
-  -moz-border-image:url("/favicon.png") 0 0 0 32px;
-  -o-border-image:url("/favicon.png") 0 0 0 32px;
-  -webkit-border-image:url("/favicon.png") 0 0 0 32px;
-  -khtml-border-image:url("/favicon.png") 0 0 0 32px;
-  border-image:url("/favicon.png") 0 0 0 32px;
-}
+  a[href][title="Lien du wiki interne LinuxFr.org"] {
+    padding-left: 3px;
+    border-left: 16px;
+    -moz-border-image: url("/favicon.png") 0 0 0 32px;
+    -o-border-image: url("/favicon.png") 0 0 0 32px;
+    -webkit-border-image: url("/favicon.png") 0 0 0 32px;
+    -khtml-border-image: url("/favicon.png") 0 0 0 32px;
+    border-image: url("/favicon.png") 0 0 0 32px;
+  }
 
-.content .content li {
-  list-style-position:inside;
+  content .content li {
+    list-style-position: inside;
+  }
 }
 
 /*==========================
@@ -679,13 +686,15 @@ article .content {
   Polls
   ==========================*/
 
-ul.poll.current {margin: 0; padding: 0;}
-ul.poll.current li {list-style:none;}
-ul.poll .result {
-  background:#ff6000;
-  font-size:x-small;
-  white-space: nowrap;
-  height: 20px;
+ul.poll {
+  &.current li {list-style: none;}
+
+  .result {
+    background: #ff6000;
+    font-size: x-small;
+    white-space: nowrap;
+    height: 20px;
+  }
 }
 
 /*==========================
@@ -908,13 +917,11 @@ li.comment.fold > .actions {display:none;}
   Form links
   ==========================*/
 
-div#form_links fieldset {
-  width: 100%;
-  margin: 0;
-}
-div#form_links fieldset label, div#form_links .link input, div#form_links .link select, div#form_links .link button {
-  display: inline-block;
-  width: 23.5%;
+div#form_links {
+  fieldset label, .link input, .link select, .link button {
+    display: inline-block;
+    width: 23.5%;
+  }
 }
 
 /*==========================
