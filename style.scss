@@ -33,15 +33,25 @@ body {
 
 @include grid-core($gridColumnWidth, $gridGutterWidth);
 
+@mixin float-span {
+  float: left;
+  min-height: 1px; // prevent collapsing columns
+  margin-left: $gridGutterWidth;
+}
+
+#sidebar, #container, #bigfooter > nav, #bigfooter > section,
+#redaction #edition, #redaction #chat {
+  @include float-span;
+  @extend .reset-span;
+}
+
 #sidebar {
   @extend .span3;
-  @extend [class*="span"];
   margin-left: 0 !important;
 }
 
 #container {
   @extend .span9;
-  @extend [class*="span"];
 }
 
 body, #container, #sidebar, #redaction {
@@ -239,7 +249,9 @@ color: #ff6000; border-bottom: 1px dashed #ff6000;
 a, footer.actions .button_to input {
   @include transition(#{all 0.5s ease-in-out 0s});
   text-decoration: none;
-  color: #999999;
+  color: #999;
+
+  &:hover {text-decoration: none;}
 }
 
 /* #site ul a               {color: #23262d;} */
@@ -434,7 +446,6 @@ article {
 
   &> nav, &> section {
     @extend .span3;
-    @extend [class*="span"];
   }
   #last_comments {
     margin-left: 0;
@@ -787,7 +798,6 @@ input#post_title,input#poll_title,input#wiki_page_title,input#stylesheet {
   }
   #edition {
     @extend .span8;
-    @extend [class*="span"];
     margin-left: 0 !important;
   }
   .edition_in_place, .paragraph, .link {
@@ -807,7 +817,6 @@ input#post_title,input#poll_title,input#wiki_page_title,input#stylesheet {
 
   #chat {
     @extend .span4;
-    @extend [class*="span"];
 
     form {@extend .form-inline;}
 
@@ -914,7 +923,6 @@ textarea.markItUp {
   width: 98%;
 }
 
-
 /* MEDIA QUERIES */
 
 @media (min-width: 1200px) {
@@ -942,46 +950,13 @@ textarea.markItUp {
     padding-left: 20px;
     padding-right: 20px;
   }
-  // Negative indent the now static "fixed" navbar
-  .navbar-fixed-top,
-  .navbar-fixed-bottom,
-  .navbar-static-top {
-    margin-left: -20px;
-    margin-right: -20px;
-  }
 
-  // TYPOGRAPHY
-  // ----------
-  // Reset horizontal dl
-  .dl-horizontal {
-    dt {
-      float: none;
-      clear: none;
-      width: auto;
-      text-align: left;
-    }
-    dd {
-      margin-left: 0;
-    }
-  }
-
-  // GRID & CONTAINERS
-  // -----------------
   // Remove width from containers
   .container {
     width: auto;
   }
-  // Undo negative margin on rows and thumbnails
-  .row,
-  .thumbnails {
-    margin-left: 0;
-  }
-  .thumbnails > li {
-    float: none;
-    margin-left: 0; // Reset the default margin for all li elements when no .span* classes are present
-  }
   // Make all grid-sized elements block level again
-  [class*="span"] {
+  .reset-span {
     float: none;
     display: block;
     width: 100%;
@@ -993,28 +968,9 @@ textarea.markItUp {
     @include box-sizing(border-box);
   }
 
-  // FORM FIELDS
-  // -----------
   // Make span* classes full width
-  .input-large,
-  .input-xlarge,
-  .input-xxlarge,
-  input[class*="span"],
-  select[class*="span"],
-  textarea[class*="span"],
-  .uneditable-input {
+  input[class*="span"], select[class*="span"], textarea[class*="span"] {
     @include input-block-level();
-  }
-  // But don't let it screw up prepend/append inputs
-  .input-prepend input,
-  .input-append input,
-  .input-prepend input[class*="span"],
-  .input-append input[class*="span"] {
-    display: inline-block; // redeclare so they don't wrap to new lines
-    width: auto;
-  }
-  .controls-row [class*="span"] + [class*="span"] {
-    margin-left: 0;
   }
 
   #branding {
@@ -1030,25 +986,24 @@ textarea.markItUp {
   h2 { font-size: 18px; line-height: 20px; }
   h3 { font-size: 16px; line-height: 20px; }
 
-  article h1     { margin-left: 0; }
-  article .score { right: 0; top: 0; }
-  div#toolbar    { font-size: smaller; line-height: 1.4; }
+  article {
+    margin-bottom: 20px;
 
-  // Smooth out the collapsing/expanding nav
-  .nav-collapse {
-    -webkit-transform: translate3d(0, 0, 0); // activate the GPU
+    h1     { margin: 0 30px 0 0; }
+    .score { right: 0; top: 10px; left: auto; }
   }
 
+  div#toolbar { font-size: x-small; line-height: 1.4; content: none;}
+
   // Update checkboxes for iOS
-  input[type="checkbox"],
-  input[type="radio"] {
+  input[type="checkbox"], input[type="radio"] {
     border: 1px solid #ccc;
   }
 
   #container {
     padding-top: 0;
   }
-  #branding, #poll_box, #redaction_box {
+  #branding, #poll_box, #redaction_box, figure.image {
     display: none;
   }
   li.comment > ul {
