@@ -5,11 +5,14 @@
 @import "bootstrap/lib/_mixins.scss";
 @import "bootstrap/lib/_reset.scss";
 
-$baseFontFamily: "Open Sans", sans-serif;
-$textColor: #242424;
-$bodyBackground: #e4e4e4;
-$linkColor: #999;
-$linkColorHover: #ff6000;
+$baseFontFamily : "Open Sans", sans-serif;
+$textColor      : #242424;
+$bodyBackground : #e4e4e4;
+$linkColor      : #999;
+$linkColorHover : #ff6000;
+$blue           : #0099BB;
+$orange         : #ff6000;
+$grayLight      : #999;
 
 @import "bootstrap/lib/_scaffolding.scss";
 
@@ -108,7 +111,7 @@ blockquote {
   }
 
   &:before {
-    color: #999;
+    color: $grayLight;
     content: "“";
     display: block;
     font: italic 4em/0.8125 Cochin,Georgia,"Times New Roman",serif;
@@ -130,7 +133,7 @@ table {
 }
 
 .signature {
-  color:#999;
+  color:$grayLight;
   &:before { white-space:pre-line; content:"-- \a"; }
 }
 
@@ -167,7 +170,7 @@ a.button, button, input[type="submit"], input[type="reset"], input[type="button"
 }
 
 form .help {
-  color: #999;
+  color: $grayLight;
   display: inline-block;
   font-style: italic;
 }
@@ -249,7 +252,7 @@ color: #ff6000; border-bottom: 1px dashed #ff6000;
 a, footer.actions .button_to input {
   @include transition(#{all 0.5s ease-in-out 0s});
   text-decoration: none;
-  color: #999;
+  color: $grayLight;
 
   &:hover {text-decoration: none;}
 }
@@ -260,21 +263,21 @@ a, footer.actions .button_to input {
 #bigfooter ul:hover a,
 #sidebar ul:hover a,
 article footer:hover .button_to input,
-article footer:hover a   {color: #0099BB;}
+article footer:hover a   {color: $blue;}
 
 a:hover,
 #bigfooter ul:hover a:hover,
 #sidebar ul:hover a:hover,
 article footer:hover a:hover,
 footer.actions .button_to input:hover,
-.toolbox a:hover         {color: #ff6000;}
+.toolbox a:hover         {color: $orange;}
 
 article {
   h1, h1 a         {color: #23262d;}
-  .meta a          {color: #999;    border-bottom: 1px dashed #999;}
+  .meta a          {color: $grayLight;    border-bottom: 1px dashed $grayLight;}
   .meta a:hover    {color: #23262d; border-bottom: 1px dashed #23262d;}
-  .content a       {color: #0099BB; border-bottom: 1px dashed #0099BB;}
-  .content a:hover {color: #ff6000; border-bottom: 1px dashed #ff6000;}
+  .content a       {color: $blue; border-bottom: 1px dashed $blue;}
+  .content a:hover {color: $orange; border-bottom: 1px dashed $orange;}
 }
 
 .board-right a           {font-weight:bold;}
@@ -489,12 +492,12 @@ article {
 
   header .topic:after { content:" :"; }
   h1                  { margin: 0 60px 0 34px; }
-  .meta               { color: #999; }
+  .meta               { color: $grayLight; }
   .datePourCss        { display: none; }
   .image              { float:left; margin:10px; }
 
   figure figcaption {
-    color:#999;
+    color:$grayLight;
     font-size:80%;
     left:100%;
     line-height:1.7em;
@@ -542,7 +545,7 @@ footer.actions {
   .button_to input {
     cursor:pointer;
     font-size:inherit;
-    color: #999;
+    color: $grayLight;
     background: transparent;
     background-color:transparent;
     border-style:none;
@@ -675,7 +678,7 @@ ul.poll {
   &.current li {list-style: none;}
 
   .result {
-    background: #ff6000;
+    background: $orange;
     font-size: x-small;
     white-space: nowrap;
     height: 20px;
@@ -713,7 +716,7 @@ li.comment {
     border-top: 2px solid #ccc;
   }
   &> .meta {
-    color:#999;
+    color:$grayLight;
     padding-bottom: 5px;
     border-bottom: 2px solid #ccc;
   }
@@ -766,8 +769,8 @@ li.new-comment > h2    { border-color: $linkColorHover; }
 #boards-show #container .inbox {
   p                   {margin: 0}
   .board-right:before {content:" » "; font-weight:bold;}
-  .board-right time   {color:#0099BB;}
-  .myPost             {color:#ff6000; font-weight:bold;}
+  .board-right time   {color:$blue;}
+  .myPost             {color:$orange; font-weight:bold;}
 }
 
 /*==========================
@@ -929,18 +932,14 @@ textarea.markItUp {
   @include grid-core($gridColumnWidth1200, $gridGutterWidth1200);
   @include grid-input($gridColumnWidth1200, $gridGutterWidth1200);
 
-  #sidebar {
-    margin-left: O !important;
-  }
+  #sidebar { margin-left: O !important; }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
   @include grid-core($gridColumnWidth768, $gridGutterWidth768);
   @include grid-input($gridColumnWidth768, $gridGutterWidth768);
 
-  #sidebar {
-    margin-left: O !important;
-  }
+  #sidebar { margin-left: O !important; }
 }
 
 @media (max-width: 767px) {
@@ -982,6 +981,10 @@ textarea.markItUp {
 // ---------------------
 
 @media (max-width: 480px) {
+  #branding, #poll_box, #redaction_box, figure.image {
+    display: none;
+  }
+
   h1 { font-size: 24px; line-height: 32px; }
   h2 { font-size: 18px; line-height: 20px; }
   h3 { font-size: 16px; line-height: 20px; }
@@ -1003,9 +1006,7 @@ textarea.markItUp {
   #container {
     padding-top: 0;
   }
-  #branding, #poll_box, #redaction_box, figure.image {
-    display: none;
-  }
+
   li.comment > ul {
     padding-left: 5px;
   }
@@ -1013,6 +1014,15 @@ textarea.markItUp {
     padding: 0 0 0 5px;
     line-height: 20px;
   }
+
+  #sidebar .box {
+    .new_content        { float: left; margin-right: 5px; }
+    .new_content:after  { content: " · "; }
+    li                  { display: inline; }
+    li:after            { content: " · "; }
+    li:last-child:after { content: ""; }
+  }
+
   footer.actions > div.vote { display: inline; @include hyphens() }
 }
 
