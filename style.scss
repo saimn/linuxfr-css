@@ -126,17 +126,6 @@ table {
   @extend .table-hover;
 }
 
-.misspelled {
-  color: inherit;
-  background-color: inherit;
-  border-bottom: 1px dashed $linkColorHover;
-}
-
-.signature {
-  color:$grayLight;
-  &:before { white-space:pre-line; content:"-- \a"; }
-}
-
 li.link:before {
   content: "(" attr(lang) ")";
   font-family: monospace;
@@ -424,12 +413,6 @@ article {
 #site ul .active > a {
   background-color: #222;
   background-color: rgba(0, 0, 0, 0.5);
-}
-
-.factice,.go_to_content {
-  float: left;
-  text-indent: -9999em;
-	text-align: left;
 }
 
 #site form input#search_submit {
@@ -884,8 +867,6 @@ body#sections-index .body .section {
   width: 20%;
 }
 
-.pot_de_miel,
-/* .markItUpHeader ul li ul, */
 #container > h1:first-of-type,
 .toolbox .pagination,
 li.comment.fold > figure,
@@ -916,11 +897,16 @@ div#form_links {
   ==========================*/
 
 @import "common/ac.css.scss";
+@import "common/generics.css.scss";
 @import "common/markitup.css.scss";
 @import "common/monokai.css.scss";
 @import "common/statistics.css.scss";
 
-/* markItUp mod */
+// generics mod
+.misspelled { border-bottom: 1px dashed $linkColorHover; }
+.signature  { color: $grayLight; font-size: small; }
+
+// markItUp mod
 textarea.markItUp {
   padding: 4px;
   width: 98%;

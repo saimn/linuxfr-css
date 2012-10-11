@@ -1,0 +1,35 @@
+.misspelled {
+  color: inherit;
+  background-color: inherit;
+  border-bottom: 1px dashed red;
+}
+
+.anchor {
+  &, &:visited {
+    color: #aaa;
+  }
+  &:hover {
+    color: #333;
+  }
+}
+
+.factice, .go_to_content {
+  float: left;
+  text-indent: -9998em;
+  overflow: hidden;
+  text-align: left;
+  width: 10px;
+}
+
+.pot_de_miel {
+  display: none;
+}
+
+.signature {
+  color: #999;
+  font-size: 11px;
+  &:before {
+    white-space: pre-line;
+    content: "-- \a";
+  }
+}
