@@ -88,11 +88,10 @@ pre {
 
 h1,h2,h3,h4,h5,h6 {
   color: #23262D;
-  font-family: "Open Sans Condensed",serif;
 }
-h1 { font-size: 30px; line-height: 40px; }
-h2 { font-size: 24px; line-height: 32px; }
-h3 { font-size: 18px; line-height: 20px; }
+h1 { font-size: 30px; line-height: 40px; font-family: "Open Sans Condensed", sans-serif; }
+h2 { font-size: 24px; line-height: 32px; font-weight: normal; }
+h3 { font-size: 18px; line-height: 20px; font-weight: normal; }
 
 p                      { @include hyphens(); }
 img,video,object,embed { max-width:100%; }
@@ -307,6 +306,10 @@ article {
   .box {
     margin-bottom: 2em;
 
+    h1 {
+      font: 24px/32px "Open Sans", sans-serif;
+      font-weight: normal;
+    }
     ul { margin-left:0; }
     li { list-style:none; }
   }
