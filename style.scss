@@ -1,3 +1,5 @@
+/* -*- scss-compile-at-save: nil -*- */
+
 @charset "UTF-8";
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700|Open+Sans+Condensed:700);
@@ -595,8 +597,9 @@ footer.actions {
   Content
   ==========================*/
 
-article .content {
-  padding: 1em 0;
+article {
+  .content { padding: 1em 0; }
+  .hidden  { display: none; }
 }
 
 .content {
@@ -609,6 +612,8 @@ article .content {
     max-width: 100%;
     margin: 0 auto;
   }
+  ul { margin: 0 0 10px 25px; }
+  ul ul { margin-bottom: 0; }
 
   a[href][title="Définition Wikipédia"]:after {
     content: "\A0W";
@@ -683,43 +688,54 @@ ul.threads {
   margin: 0 0 20px 0;
 }
 
-.threads li {
-  position: relative;
+.threads {
+  li.comment {
+    position: relative;
+    margin: 20px 0;
+  }
+  &> li.comment {
+    margin: 0;
+    padding: 20px;
+    border-top: 2px solid darken($wellBackground, 20%);
+
+    &> figure.image {left: 10px; top: 10px;}
+    &> footer.actions {
+      .action, .vote {right: 10px; top: 10px;}
+      .action {top: 35px;}
+    }
+  }
+  &> li:nth-child(2n)   { background-color: lighten($bodyBackground, 3%); }
+  &> li:nth-child(2n+1) { background-color: darken($bodyBackground, 3%); }
 }
 
 li.comment {
   &> h2, &> .meta {
-    background: #ddd;
-    padding-left: 10px;
     line-height: 25px;
+    font-size: 14px;
+    margin: 0;
+    margin-left: 64px;
+    padding: 0;
   }
   &> h2 {
-    font-size: medium;
-    margin-bottom: 0;
-    margin-top: 10px;
-    clear: right;
-    padding-top: 5px;
-    border-top: 2px solid #ccc;
+    a.title { color: #23262d; font-size: 16px; }
   }
   &> .meta {
     color:$grayLight;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #ccc;
-  }
 
-  a.title {
-    color: #23262d;
+    a[rel="author"] { color: #23262d; }
+    .score { @extend .badge; }
+    &:after { border-bottom: 2px solid #ccc; }
   }
 
   figure.image {
     margin: 0;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
   }
   img.avatar {
-    height: 64px;
-    width: 64px;
+    height: 48px;
+    width: 48px;
   }
 
   &> ul {
@@ -728,10 +744,14 @@ li.comment {
     padding-left: 1em;
     border-left: 1px dotted #ccc;
   }
+
+  .content { margin-top: 10px; }
 }
 
-li.new-comment > .meta { border-color: $linkColorHover; }
-li.new-comment > h2    { border-color: $linkColorHover; }
+li.new-comment {
+  &> .meta, &> h2 a { color: $blue; }
+}
+
 
 /*==========================
   Board
@@ -996,12 +1016,17 @@ textarea.markItUp {
     padding-top: 0;
   }
 
-  li.comment > ul {
-    padding-left: 5px;
-  }
-  li.comment > h2, li.comment > .meta {
-    padding: 0 0 0 5px;
-    line-height: 20px;
+  li.comment {
+    &> ul {
+      padding-left: 5px;
+    }
+    &> h2, &> .meta {
+      margin: 0;
+      line-height: 20px;
+    }
+    .content {
+      margin-bottom: 10px;
+    }
   }
 
   #sidebar .box {
@@ -1018,6 +1043,8 @@ textarea.markItUp {
 // Enhancements for desktop version
 
 @media (min-width: 480px) {
+  @import "bootstrap/lib/_wells.scss";
+
   html {
     background: #e4e4e4 url('http://saimon.org/public/linuxfr/white_texture.png') repeat top;
   }
@@ -1042,4 +1069,59 @@ textarea.markItUp {
     padding: 14px;
     @include box-shadow(#{0 0 6px rgba(0, 0, 0, 0.5)});
   }
+
+  li.comment {
+    footer.actions {
+      .action, .vote {
+        color: $linkColor;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .action {
+        top: 25px;
+      }
+    }
+
+    blockquote { margin-left: 2em; }
+
+    .content {
+      @extend .well;
+
+      position: relative;
+      background-color: rgba(245, 245, 245, 0.9);
+      border: 1px solid darken($wellBackground, 20%);
+      @include border-radius(8px);
+      @include box-shadow(0 0 6px rgba(0, 0, 0, .1));
+
+      &:after, &:before {
+        content: ' ';
+        height: 0;
+        position: absolute;
+        width: 0;
+        left: 15px;
+      }
+      &:before {
+        border: 10px solid transparent;
+        border-bottom-color: rgba(245, 245, 245, 0.8);
+        top: -20px;
+      }
+      &:after {
+        border: 1px solid transparent;
+        border-bottom-color: darken($wellBackground, 20%);
+        top: -20px;
+      }
+    }
+  }
+
+  li.new-comment {
+    .content {
+      border: 1px solid $blue;
+      &:before {
+        border-bottom-color: $blue;
+      }
+    }
+  }
+
 }
