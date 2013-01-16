@@ -1,5 +1,5 @@
 
-all: css compressed
+all: css compressed sync
 
 css:
 	sass style.scss:style.css
@@ -14,5 +14,5 @@ watch:
 	sass --watch --debug-info style.scss:style.css
 
 sync:
-	# scp style.css kimsufi:saimon.org/public/linuxfr/linuxfr.css
+	scp white_texture.png kimsufi:saimon.org/public/linuxfr/
 	scp style.min.css kimsufi:saimon.org/public/linuxfr/linuxfr.min.css
