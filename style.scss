@@ -59,10 +59,6 @@ body {
   @extend .span9;
 }
 
-body, #container, #sidebar, #redaction {
-  padding-top: 40px;
-}
-
 /*==========================
   STYLES
   ==========================*/
@@ -149,6 +145,10 @@ input[type="radio"] {
 
 #container form, .edit_account {
   @extend .form-inline;
+}
+
+#label_query {
+  display: none;
 }
 
 a.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
@@ -319,111 +319,6 @@ article {
   input   { font-size:small; }
   #logout { margin-top:1em; }
   h2      { font-size: 18px; line-height: 20px; }
-}
-
-/*==========================
-  Site (menubar)
-  ==========================*/
-
-#site {
-  height: 40px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10000;
-  overflow: visible;
-}
-#site a {
-  color: #bfbfbf;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-}
-#site ul .active > a {
-  background-color: #333;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-  text-decoration: none;
-}
-#site form {
-  @extend .form-search;
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  @include opacity(100);
-}
-#site input {
-  background-color: #444;
-  background-color: rgba(255, 255, 255, 0.3);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: normal;
-  font-weight: 13px;
-  line-height: 1;
-  padding: 4px 9px;
-  color: #ffffff;
-  color: rgba(255, 255, 255, 0.75);
-  border: 1px solid #111;
-  @include border-radius(4px);
-  @include box-shadow(#{inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0px rgba(255, 255, 255, 0.25)});
-  @include transition(none);
-}
-#site input:-moz-placeholder {
-  color: #e6e6e6;
-}
-#site input::-webkit-input-placeholder {
-  color: #e6e6e6;
-}
-#site input:hover {
-  background-color: #bfbfbf;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #ffffff;
-}
-#site input:focus, #site input.focused {
-  outline: 0;
-  background-color: #ffffff;
-  color: #404040;
-  text-shadow: 0 1px 0 #ffffff;
-  border: 0;
-  padding: 5px 10px;
-  @include box-shadow(#{0 0 3px rgba(0, 0, 0, 0.15)});
-}
-#site {
-  background-color: #222;
-  background-color: #222222;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#333333), to(#222222));
-  background-image: -moz-linear-gradient(top, #333333, #222222);
-  background-image: -ms-linear-gradient(top, #333333, #222222);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #222222));
-  background-image: -webkit-linear-gradient(top, #333333, #222222);
-  background-image: -o-linear-gradient(top, #333333, #222222);
-  background-image: linear-gradient(top, #333333, #222222);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
-  @include box-shadow(#{0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)});
-}
-#site ul > li {
-  display: block;
-  float: left;
-}
-#site ul a {
-  display: block;
-  float: none;
-  padding: 10px 10px 11px;
-  line-height: 19px;
-  text-decoration: none;
-}
-#site ul a:hover {
-  color: #ffffff;
-  text-decoration: none;
-}
-#site ul .active > a {
-  background-color: #222;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-#site form input#search_submit {
-  width:0;
-  position:absolute;
-  visibility:hidden;
 }
 
 /*==========================
@@ -951,6 +846,95 @@ textarea.markItUp {
   #sidebar { margin-left: O !important; }
 }
 
+@media (min-width: 767px) {
+  body, #container, #sidebar, #redaction {
+    padding-top: 40px;
+  }
+
+  // Site (menubar)
+  #site {
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    overflow: visible;
+
+    @include gradient-vertical($navbarInverseBackgroundHighlight, $navbarInverseBackground);
+    @include box-shadow(#{0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)});
+
+    a {
+      color: #bfbfbf;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    form {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      margin-bottom: 0;
+      @include opacity(100);
+
+      input#search_submit {
+        width:0;
+        position:absolute;
+        visibility:hidden;
+      }
+
+      input {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+
+        color: $white;
+        background-color: $navbarInverseSearchBackground;
+        border-color: $navbarInverseSearchBorder;
+        @include box-shadow(inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15));
+        @include transition(none);
+        @include placeholder($navbarInverseSearchPlaceholderColor);
+        @include border-radius(6px);
+
+        &:focus {
+          padding: 5px 15px;
+          color: $grayDark;
+          text-shadow: 0 1px 0 $white;
+          background-color: $navbarInverseSearchBackgroundFocus;
+          border: 0;
+          @include box-shadow(0 0 3px rgba(0,0,0,.15));
+          outline: 0;
+        }
+      }
+    }
+
+    ul {
+      &> li {
+        display: block;
+        float: left;
+      }
+      a {
+        display: block;
+        float: none;
+        padding: 10px 10px 11px;
+        line-height: 19px;
+        text-decoration: none;
+
+        &:hover {
+          color: #ffffff;
+          text-decoration: none;
+        }
+      }
+
+      .active > a {
+        color: #ffffff;
+        text-decoration: none;
+        background-color: #222;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}
+
 @media (max-width: 767px) {
 
   // Padding to set content in a bit
@@ -983,6 +967,21 @@ textarea.markItUp {
 
   #branding {
     float: right;
+  }
+
+  #site {
+    ul {
+      margin: 20px 0;
+      list-style: none;
+
+      li {
+        display: inline-block;
+        &:after            { content: " · "; }
+        &:last-child:after { content: ""; }
+      }
+    }
+    #query         { margin-bottom: 0; }
+    .go_to_content { width: 0; }
   }
 }
 
@@ -1032,9 +1031,11 @@ textarea.markItUp {
   #sidebar .box {
     .new_content        { float: left; margin-right: 5px; }
     .new_content:after  { content: " · "; }
-    li                  { display: inline; }
-    li:after            { content: " · "; }
-    li:last-child:after { content: ""; }
+    li {
+      display: inline;
+      &:after            { content: " · "; }
+      &:last-child:after { content: ""; }
+    }
   }
 
   footer.actions > div.vote { display: inline; @include hyphens() }
