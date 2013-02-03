@@ -9,9 +9,8 @@
 
 $baseFontFamily : "Open Sans", sans-serif;
 $textColor      : #242424;
+$titleColor     : #23262D;
 $bodyBackground : #e4e4e4;
-$linkColor      : #999;
-$linkColorHover : #ff6000;
 $blue           : #0099BB;
 $orange         : #ff6000;
 $grayLight      : #999;
@@ -65,15 +64,15 @@ body {
 
 @import "bootstrap/lib/_type.scss";
 
-hr {border-color: #E2E2E3;}
+hr {border-color: #e2e2e3;}
 
 pre, code {
   background: rgba(0,0,0,.05);
   border: 1px solid #aaa;
 }
 pre {
-  background-color: #211E1E;
-  color: #DADADA;
+  background-color: #211e1e;
+  color: #dadada;
   @include box-shadow(#{0 0 6px rgba(0, 0, 0, 0.5)});
   -moz-tab-size: 2;
   padding: 0.75em 1em;
@@ -85,7 +84,7 @@ pre {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  color: #23262D;
+  color: $titleColor;
 }
 h1 { font-size: 30px; line-height: 40px; font-family: "Open Sans Condensed", sans-serif; }
 h2 { font-size: 24px; line-height: 32px; font-weight: normal; }
@@ -123,7 +122,7 @@ table {
   @extend .table-hover;
 }
 
-li.link:before {
+.content li.link:before {
   content: "(" attr(lang) ")";
   font-family: monospace;
   font-size: small;
@@ -263,9 +262,9 @@ footer.actions .button_to input:hover,
 .toolbox a:hover         {color: $orange;}
 
 article {
-  h1, h1 a         {color: #23262d;}
+  h1, h1 a         {color: $titleColor;}
   .meta a          {color: $grayLight;    border-bottom: 1px dashed $grayLight;}
-  .meta a:hover    {color: #23262d; border-bottom: 1px dashed #23262d;}
+  .meta a:hover    {color: $titleColor; border-bottom: 1px dashed $titleColor;}
   .content a       {color: $blue; border-bottom: 1px dashed $blue;}
   .content a:hover {color: $orange; border-bottom: 1px dashed $orange;}
 }
@@ -278,6 +277,8 @@ article {
   ==========================*/
 
 #sidebar {
+  color: $grayLight;
+
   .insecure, .secure {
     float:right;
     text-indent:-9999em;
@@ -295,6 +296,7 @@ article {
     display:block;
     width: 201px;
     height:186px;
+    max-width: 100%;
     margin: 0;
 
     a {
@@ -311,6 +313,8 @@ article {
     h1 {
       font: 24px/32px "Open Sans", sans-serif;
       font-weight: normal;
+
+      a { color: $titleColor; }
     }
     ul { margin-left:0; }
     li { list-style:none; }
@@ -612,12 +616,12 @@ li.comment {
     padding: 0;
   }
   &> h2 {
-    a.title { color: #23262d; font-size: 16px; }
+    a.title { color: $titleColor; font-size: 16px; }
   }
   &> .meta {
     color:$grayLight;
 
-    a[rel="author"] { color: #23262d; }
+    a[rel="author"] { color: $titleColor; }
     .score { @extend .badge; }
     &:after { border-bottom: 2px solid #ccc; }
   }
@@ -821,14 +825,8 @@ div#form_links {
 @import "common/statistics.css.scss";
 
 // generics mod
-.misspelled { border-bottom: 1px dashed $linkColorHover; }
+.misspelled { border-bottom: 1px dashed $orange; }
 .signature  { color: $grayLight; font-size: small; }
-
-// markItUp mod
-textarea.markItUp {
-  padding: 4px;
-  width: 98%;
-}
 
 /* MEDIA QUERIES */
 
@@ -1074,15 +1072,15 @@ textarea.markItUp {
   li.comment {
     footer.actions {
       .action, .vote {
-        color: $linkColor;
+        color: $grayLight;
         margin: 0;
         position: absolute;
         top: 0;
         right: 0;
       }
-      .action {
-        top: 25px;
-      }
+      .action { top: 25px; }
+      // pour le lien "Modifier" (prend la place du pertinent/inutile)
+      .action + .action { top: 0; }
     }
 
     blockquote { margin-left: 2em; }
@@ -1114,6 +1112,10 @@ textarea.markItUp {
         top: -20px;
       }
     }
+  }
+
+  li#comment_new {
+    list-style: none;
   }
 
   li.new-comment {
