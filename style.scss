@@ -13,7 +13,8 @@ $titleColor     : #23262D;
 $bodyBackground : #e4e4e4;
 $blue           : #0099BB;
 $orange         : #ff6000;
-$grayLight      : #999;
+$grayLight      : #777;
+$grayLighter    : #aaa;
 
 @import "bootstrap/lib/_scaffolding.scss";
 
@@ -68,7 +69,7 @@ hr {border-color: #e2e2e3;}
 
 pre, code {
   background: rgba(0,0,0,.05);
-  border: 1px solid #aaa;
+  border: 1px solid $grayLighter;
 }
 pre {
   background-color: #211e1e;
@@ -97,22 +98,25 @@ textarea               { max-width:100%; }
 
 blockquote {
   font-style: italic;
-  border-left: 0.5em solid #ddd;
-  padding: 0.5em;
-  margin: 1em;
+  border-left: 0;
+  padding: 0 1em 0 2.5em;
+  position: relative;
 
   p {
     font-size: 14px;
+    margin: 0 0 10px;
     line-height: inherit;
   }
 
   &:before {
-    color: $grayLight;
-    content: "“";
+    color: $grayLighter;
+    content: "«";
     display: block;
     font: italic 4em/0.8125 Cochin,Georgia,"Times New Roman",serif;
     height: 0;
-    margin-left: -0.95em;
+    position: absolute;
+    left: 0;
+    top: -18px;
   }
 }
 
@@ -1070,7 +1074,19 @@ div#form_links {
   }
 
   li.comment {
+    &> h2, &> .meta {
+      max-width: 70%;
+    }
     footer.actions {
+      .vote { visibility: hidden; }
+      form  {
+        visibility: visible;
+        &:last-child { margin: 0 -10px 0 -20px; }
+      }
+      .button_to:first-child div:after {
+        content: "/";
+        margin-left: 5px;
+      }
       .action, .vote {
         color: $grayLight;
         margin: 0;
@@ -1082,8 +1098,6 @@ div#form_links {
       // pour le lien "Modifier" (prend la place du pertinent/inutile)
       .action + .action { top: 0; }
     }
-
-    blockquote { margin-left: 2em; }
 
     .content {
       @extend .well;
