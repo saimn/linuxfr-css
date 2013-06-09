@@ -167,9 +167,16 @@ form .help {
   display: inline-block;
   font-style: italic;
 }
-#stylesheets-edit #contents button {
-  margin: 1em 0;
-  width: 32%;
+
+#stylesheets-edit #contents {
+  button {
+    margin: 0 1% 10px 0;
+    width: 31%;
+  }
+
+  form label {
+    display: block;
+  }
 }
 
 @mixin button_icon ($icon_image, $posx: 7px, $posy: 7px) {
