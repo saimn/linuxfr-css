@@ -15,4 +15,5 @@ watch:
 
 sync:
 	scp white_texture.png kimsufi:saimon.org/public/linuxfr/
+	scp style.min.css.map kimsufi:saimon.org/public/linuxfr/
 	scp style.min.css kimsufi:saimon.org/public/linuxfr/linuxfr.min.css
